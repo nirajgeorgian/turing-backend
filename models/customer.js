@@ -1,22 +1,24 @@
-import crypto from 'crypto'
+'use strict'
 
-export const Customer = (sequelize, type) => {
+const crypto = require('crypto')
+
+module.exports = (sequelize, DataTypes) => {
 	const customer = sequelize.define(
 		'customer',
 		{
 			customer_id: {
-				type: type.INTEGER,
+				type: DataTypes.INTEGER,
 				autoIncrement: true,
 				primaryKey: true,
 				allowNull: false,
 				unique: true,
 			},
 			name: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 				allowNull: false,
 			},
 			email: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 				allowNull: false,
 				unique: true,
 				validate: {
@@ -24,38 +26,38 @@ export const Customer = (sequelize, type) => {
 				},
 			},
 			password: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 				allowNull: false,
 			},
 			credit_card: {
-				type: type.TEXT,
+				type: DataTypes.TEXT,
 			},
 			address_1: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			address_2: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			city: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			region: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			postal_code: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			country: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			day_phone: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			eve_phone: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			mob_phone: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 		},
 		{
@@ -74,10 +76,12 @@ export const Customer = (sequelize, type) => {
 			},
 		}
 	)
-	customer.prototype.verifyPassword = pwd => {
+
+	customer.protoDataTypes.verifyPassword = pwd => {
 		const salt = Buffer.from(`${process.env.HASH_SECRET}`, 'base64')
 		const key = crypto.pbkdf2Sync(pwd, salt, 100000, 64, 'sha512')
 		return this.password === key.toString('hex')
 	}
+
 	return customer
 }

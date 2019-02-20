@@ -1,38 +1,40 @@
-export const Product = (sequelize, type) => {
-	return sequelize.define(
+'use strict'
+
+module.exports = (sequelize, DataTypes) => {
+	const product = sequelize.define(
 		'product',
 		{
 			product_id: {
-				type: type.INTEGER,
+				type: DataTypes.INTEGER,
 				autoIncrement: true,
 				primaryKey: true,
 				allowNull: false,
 				unique: true,
 			},
 			name: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 				allowNull: false,
 			},
 			description: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			price: {
-				type: type.DECIMAL,
+				type: DataTypes.DECIMAL,
 			},
 			discounted_price: {
-				type: type.DECIMAL,
+				type: DataTypes.DECIMAL,
 			},
 			image: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			image_2: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			thumbnail: {
-				type: type.STRING,
+				type: DataTypes.STRING,
 			},
 			display: {
-				type: type.SMALLINT,
+				type: DataTypes.SMALLINT,
 			},
 		},
 		{
@@ -44,4 +46,5 @@ export const Product = (sequelize, type) => {
 			],
 		}
 	)
+	return product
 }

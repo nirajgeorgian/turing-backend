@@ -1,4 +1,4 @@
-import { CustomerModel } from '../config/db'
+import { customer } from '../../models'
 import { generateJwtToken } from '../utils/auth/auth.util'
 import { errorMessage, successMessage } from '../utils/response'
 import { validateEmail, validatePassword } from '../utils/helpers'
@@ -16,9 +16,10 @@ export const login = (req, res) => {
 		return res.send(400).send(errorMessage(emailValidationError))
 	}
 
-	CustomerModel.findOne({
-		where: { email },
-	})
+	customer
+		.findOne({
+			where: { email },
+		})
 		.then(customer => {
 			const payload = {
 				id: customer.customer_id,
@@ -56,9 +57,10 @@ export const signup = (req, res) => {
 		return res.status(400).send(errorMessage(passwordValidationError))
 	}
 
-	CustomerModel.findAll({
-		where: { email },
-	})
+	customer
+		.findAll({
+			where: { email },
+		})
 		.then(user => {
 			if (user.length > 0) {
 				return res
@@ -66,11 +68,12 @@ export const signup = (req, res) => {
 					.send(errorMessage('The email is already registered'))
 			}
 
-			CustomerModel.create({
-				name,
-				email,
-				password,
-			})
+			customer
+				.create({
+					name,
+					email,
+					password,
+				})
 				.then(data => {
 					return res.status(201).send(
 						successMessage('customer', {
