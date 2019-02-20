@@ -1,28 +1,25 @@
 import Sequelize from 'sequelize'
 import { sequelize } from '../config/db'
 
-export const Department = sequelize.define(
-	'department',
+export const AttributeValue = sequelize.define(
+	'attribute_value',
 	{
-		department_id: {
+		attribute_value_id: {
 			type: Sequelize.INTEGER,
 			autoIncrement: true,
 			primaryKey: true,
 			allowNull: false,
 			unique: true,
 		},
-		name: {
+		value: {
 			type: Sequelize.STRING,
 			allowNull: false,
-		},
-		description: {
-			type: Sequelize.STRING,
 		},
 	},
 	{
 		classMethods: {
 			associate: models => {
-				Department.hasMany(models.category)
+				AttributeValue.belongsTo(models.attribute)
 			},
 		},
 	}
