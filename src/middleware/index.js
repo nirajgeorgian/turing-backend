@@ -1,5 +1,6 @@
 import bodyParser from 'body-parser'
 import compression from 'compression'
+import override from 'method-override'
 
 import cors from './cors'
 import toobusy from './toobussy'
@@ -16,6 +17,7 @@ export default app => {
 	logger(app)
 	app.use(compression())
 	app.use(toobusy)
+	app.use(override())
 	ignoreRequest(app)
 	security(app)
 	app.use(verifyJwt)

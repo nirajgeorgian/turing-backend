@@ -1,11 +1,10 @@
 import express from 'express'
 
 import middlewares from './middleware'
-import homeRouter from './routes/home'
+import { appRoutes } from './routes'
 
 const app = express()
-
 middlewares(app)
-app.use(homeRouter)
+appRoutes(app)
 
 export default app

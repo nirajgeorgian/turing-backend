@@ -1,16 +1,15 @@
-import Sequelize from 'sequelize'
-import { sequelize } from '../config/db'
-
-export const Attribute = sequelize.define('attribute', {
-	attribute_id: {
-		type: Sequelize.INTEGER,
-		autoIncrement: true,
-		primaryKey: true,
-		allowNull: false,
-		unique: true,
-	},
-	name: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-})
+export const Attribute = (sequelize, type) => {
+	return sequelize.define('attribute', {
+		attribute_id: {
+			type: type.INTEGER,
+			autoIncrement: true,
+			primaryKey: true,
+			allowNull: false,
+			unique: true,
+		},
+		name: {
+			type: type.STRING,
+			allowNull: false,
+		},
+	})
+}

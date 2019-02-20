@@ -1,37 +1,36 @@
-import Sequelize from 'sequelize'
-import { sequelize } from '../config/db'
-
-export const Product = sequelize.define('product', {
-	product_id: {
-		type: Sequelize.INTEGER,
-		autoIncrement: true,
-		primaryKey: true,
-		allowNull: false,
-		unique: true,
-	},
-	name: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	description: {
-		type: Sequelize.STRING,
-	},
-	price: {
-		type: Sequelize.DECIMAL,
-	},
-	discounted_price: {
-		type: Sequelize.DECIMAL,
-	},
-	image: {
-		type: Sequelize.STRING,
-	},
-	image_2: {
-		type: Sequelize.STRING,
-	},
-	thumbnail: {
-		type: Sequelize.STRING,
-	},
-	display: {
-		type: Sequelize.SMALLINT,
-	},
-})
+export const Product = (sequelize, type) => {
+	return sequelize.define('product', {
+		product_id: {
+			type: type.INTEGER,
+			autoIncrement: true,
+			primaryKey: true,
+			allowNull: false,
+			unique: true,
+		},
+		name: {
+			type: type.STRING,
+			allowNull: false,
+		},
+		description: {
+			type: type.STRING,
+		},
+		price: {
+			type: type.DECIMAL,
+		},
+		discounted_price: {
+			type: type.DECIMAL,
+		},
+		image: {
+			type: type.STRING,
+		},
+		image_2: {
+			type: type.STRING,
+		},
+		thumbnail: {
+			type: type.STRING,
+		},
+		display: {
+			type: type.SMALLINT,
+		},
+	})
+}
