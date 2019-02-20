@@ -29,6 +29,11 @@ const sequelize = new Sequelize(DB, DB_USER, DB_PASS, {
 		acquire: 30000,
 		idle: 10000,
 	},
+
+	define: {
+		freezeTableName: true,
+		timestamps: false,
+	},
 })
 
 export const AttributeValueModel = AttributeValue(sequelize, Sequelize)
