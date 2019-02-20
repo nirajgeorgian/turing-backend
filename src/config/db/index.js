@@ -11,6 +11,7 @@ import { Category } from '../../models/category'
 import { Customer } from '../../models/customer'
 import { Department } from '../../models/department'
 import { Product } from '../../models/product'
+// import { ProductCategory } from '../../models/product_category'
 
 const DB = process.env.DB || 'ecomm_test'
 const DB_HOST = process.env.DB_HOST || 'localhost'
@@ -33,6 +34,7 @@ const sequelize = new Sequelize(DB, DB_USER, DB_PASS, {
 	define: {
 		freezeTableName: true,
 		timestamps: false,
+		underscored: true,
 	},
 })
 

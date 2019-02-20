@@ -29,16 +29,17 @@ CREATE TABLE `product` (
   `image_2`          VARCHAR(150),
   `thumbnail`        VARCHAR(150),
   `display`          SMALLINT(6)   NOT NULL  DEFAULT '0',
+  `category_id`        INT           NOT NULL,
   PRIMARY KEY  (`product_id`),
   FULLTEXT KEY `idx_ft_product_name_description` (`name`, `description`)
 ) ENGINE=MyISAM;
 
 -- Create product_category table
-CREATE TABLE `product_category` (
-  `product_id`  INT NOT NULL,
-  `category_id` INT NOT NULL,
-  PRIMARY KEY (`product_id`, `category_id`)
-) ENGINE=MyISAM;
+-- CREATE TABLE `product_category` (
+--   `product_id`  INT NOT NULL,
+--   `category_id` INT NOT NULL,
+--   PRIMARY KEY (`product_id`, `category_id`)
+-- ) ENGINE=MyISAM;
 
 -- Create attribute table (stores attributes such as Size and Color)
 CREATE TABLE `attribute` (
@@ -284,7 +285,7 @@ INSERT INTO `product` (`product_id`, `name`, `description`, `price`, `discounted
        (83, 'Weather Vane', 'This weather vane dates from the 1830''s and is still showing which way the wind blows! Trumpet your arrival with this unique Christmas T-shirt.', 15.95, 14.99, 'weather-vane.gif', 'weather-vane-2.gif', 'weather-vane-thumbnail.gif', 2),
        (84, 'Mistletoe', 'This well-known parasite and killer of trees was revered by the Druids, who would go out and gather it with great ceremony. Youths would go about with it to announce the new year. Eventually more engaging customs were attached to the strange plant, and we''re here to see that they continue with these cool Christmas T-shirts.', 19.00, 17.99, 'mistletoe.gif', 'mistletoe-2.gif', 'mistletoe-thumbnail.gif', 3),
        (85, 'Altar Piece', 'This beautiful angel Christmas T-shirt is awaiting the opportunity to adorn your chest!', 20.50, 18.50, 'altar-piece.gif', 'altar-piece-2.gif', 'altar-piece-thumbnail.gif', 2),
-       (86, 'The Three Wise Men', 'This is a classic rendition of one of the season’s most beloved stories, and now showing on a Christmas T-shirt for you!', 12.99, 0.00, 'the-three-wise-men.gif', 'the-three-wise-men-2.gif', 'the-three-wise-men-thumbnail.gif', 0),
+       (86, 'The Three Wise Men', 'This is a classic rendition of one of the seasonï¿½s most beloved stories, and now showing on a Christmas T-shirt for you!', 12.99, 0.00, 'the-three-wise-men.gif', 'the-three-wise-men-2.gif', 'the-three-wise-men-thumbnail.gif', 0),
        (87, 'Christmas Tree', 'Can you get more warm and folksy than this classic Christmas T-shirt?', 20.00, 17.95, 'christmas-tree.gif', 'christmas-tree-2.gif', 'christmas-tree-thumbnail.gif', 2),
        (88, 'Madonna & Child', 'This exquisite image was painted by Filipino Lippi, a 15th century Italian artist. I think he would approve of it on a Going Postal Christmas T-shirt!', 21.95, 18.50, 'madonna-child.gif', 'madonna-child-2.gif', 'madonna-child-thumbnail.gif', 0),
        (89, 'The Virgin Mary', 'This stained glass window is found in Glasgow Cathedral, Scotland, and was created by Gabriel Loire of France, one of the most prolific of artists in this medium--and now you can have it on this wonderful Christmas T-shirt.', 16.95, 15.95, 'the-virgin-mary.gif', 'the-virgin-mary-2.gif', 'the-virgin-mary-thumbnail.gif', 2),

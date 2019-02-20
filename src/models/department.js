@@ -20,6 +20,7 @@ export const Department = (sequelize, type) => {
 		{
 			classMethods: {
 				associate: models => {
+					// Add relation modeles
 					Department.hasMany(models.category)
 				},
 			},

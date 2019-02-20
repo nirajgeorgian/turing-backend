@@ -1,7 +1,7 @@
 import crypto from 'crypto'
 
 export const Customer = (sequelize, type) => {
-	return sequelize.define(
+	const customer = sequelize.define(
 		'customer',
 		{
 			customer_id: {
@@ -59,18 +59,6 @@ export const Customer = (sequelize, type) => {
 			},
 		},
 		{
-			classMethods: {
-				associate: () => {
-					// Add relation modeles
-				},
-			},
-			instanceMethods: {
-				verifyPassword: pwd => {
-					const salt = Buffer.from(`${process.env.HASH_SECRET}`, 'base64')
-					const key = crypto.pbkdf2Sync(pwd, salt, 100000, 64, 'sha512')
-					return this.password === key.toString('hex')
-				},
-			},
 			hooks: {
 				beforeCreate: user => {
 					const salt = Buffer.from(`${process.env.HASH_SECRET}`, 'base64')
@@ -86,4 +74,10 @@ export const Customer = (sequelize, type) => {
 			},
 		}
 	)
+	customer.prototype.verifyPassword = pwd => {
+		const salt = Buffer.from(`${process.env.HASH_SECRET}`, 'base64')
+		const key = crypto.pbkdf2Sync(pwd, salt, 100000, 64, 'sha512')
+		return this.password === key.toString('hex')
+	}
+	return customer
 }
