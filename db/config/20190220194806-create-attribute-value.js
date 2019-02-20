@@ -2,7 +2,7 @@
 module.exports = {
 	up: (queryInterface, Sequelize) => {
 		return queryInterface.createTable('attribute_value', {
-			id: {
+			attribute_value_id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
