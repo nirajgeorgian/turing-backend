@@ -9,7 +9,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			shipping_region: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING(100),
 			},
 		})
 	},

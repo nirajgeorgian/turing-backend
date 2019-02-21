@@ -9,10 +9,10 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			attribute: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING(1000),
 			},
 			product_name: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING(100),
 			},
 			quantity: {
 				type: Sequelize.INTEGER,

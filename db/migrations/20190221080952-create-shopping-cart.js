@@ -9,10 +9,10 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			cart_id: {
-				type: Sequelize.CHAR,
+				type: Sequelize.CHAR(32),
 			},
 			attribute: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING(1000),
 			},
 			quantity: {
 				type: Sequelize.INTEGER,

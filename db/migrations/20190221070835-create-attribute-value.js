@@ -9,7 +9,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			value: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING(100),
 			},
 			attribute_id: {
 				type: Sequelize.INTEGER,

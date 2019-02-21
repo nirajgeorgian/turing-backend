@@ -9,7 +9,7 @@ module.exports = {
 				type: Sequelize.INTEGER,
 			},
 			shipping_type: {
-				type: Sequelize.STRING,
+				type: Sequelize.STRING(100),
 			},
 			shipping_cost: {
 				type: Sequelize.FLOAT(10, 2),

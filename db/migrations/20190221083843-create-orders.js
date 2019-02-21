@@ -27,10 +27,10 @@ module.exports = {
 					type: Sequelize.STRING,
 				},
 				auth_code: {
-					type: Sequelize.STRING,
+					type: Sequelize.STRING(50),
 				},
 				reference: {
-					type: Sequelize.STRING,
+					type: Sequelize.STRING(50),
 				},
 				tax_id: {
 					type: Sequelize.INTEGER,
