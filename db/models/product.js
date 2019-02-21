@@ -2,6 +2,12 @@ export default (sequelize, DataTypes) => {
 	const product = sequelize.define(
 		'product',
 		{
+			product_id: {
+				allowNull: false,
+				autoIncrement: true,
+				primaryKey: true,
+				type: DataTypes.INTEGER,
+			},
 			name: DataTypes.STRING,
 			description: DataTypes.STRING,
 			price: DataTypes.DECIMAL,

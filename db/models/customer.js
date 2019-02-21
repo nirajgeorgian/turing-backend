@@ -2,6 +2,12 @@ export default (sequelize, DataTypes) => {
 	const customer = sequelize.define(
 		'customer',
 		{
+			customer_id: {
+				allowNull: false,
+				autoIncrement: true,
+				primaryKey: true,
+				type: DataTypes.INTEGER,
+			},
 			name: DataTypes.STRING,
 			email: DataTypes.STRING,
 			password: DataTypes.STRING,
@@ -20,7 +26,9 @@ export default (sequelize, DataTypes) => {
 	)
 	customer.associate = models => {
 		// associations can be defined here
-		customer.belongsTo(models.shipping_region)
+		customer.belongsTo(models.shipping_region, {
+			foreignKey: 'shipping_region_id',
+		})
 	}
 	return customer
 }
