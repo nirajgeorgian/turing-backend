@@ -6,6 +6,7 @@
 		"host": "127.0.0.1",
 		"dialect": "mysql",
 		"operatorsAliases": false,
+		"logging": false,
 
 		"pool": {
 			"max": 5,
@@ -22,11 +23,12 @@
 	},
 	"test": {
 		"username": "root",
-		"password": null,
+		"password": "dodo",
 		"database": "ecomm_test",
 		"host": "127.0.0.1",
 		"dialect": "mysql",
 		"operatorsAliases": false,
+		"logging": false,
 
 		"define": {
 			"freezeTableName": true,

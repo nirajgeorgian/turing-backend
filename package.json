@@ -7,6 +7,7 @@
     "test": "jest",
     "db:create": "sequelize  db:create",
     "db:migrate": "sequelize db:migrate",
+    "db:test": "NODE_ENV=test sequelize  db:create && NODE_ENV=test sequelize db:migrate",
     "db:migrate:undo": "sequalize db:migrate:undo",
     "build": "babel index.js --out-dir dist",
     "start": "NODE_ENV=development DEBUG=development nodemon --exec babel-node index.js"
