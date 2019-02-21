@@ -15,5 +15,10 @@ export default (sequelize, DataTypes) => {
 		},
 		{}
 	)
+	product_category.associate = models => {
+		// associations can be defined here
+		product_category.belongsTo(models.product, { foreignKey: 'product_id' })
+		product_category.belongsTo(models.category, { foreignKey: 'category_id' })
+	}
 	return product_category
 }

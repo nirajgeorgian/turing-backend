@@ -1,10 +1,22 @@
-import { category, product, department } from '../../db/models'
+import {
+	category,
+	product_category,
+	product,
+	department,
+} from '../../db/models'
 import { errorMessage, successMessage } from '../utils/response'
 
+/**
+ * [Retrieve all product information]
+ * @param  {[type]}  req [expressjs request]
+ * @param  {[type]}  res [expressjs response]
+ * @return {Promise}     [resolve to sql data]
+ */
 export const getAllProducts = async (req, res) => {
 	try {
-		const products = await product.findAll({
+		const products = await product_category.findAll({
 			include: [
+				{ model: product },
 				{
 					model: category,
 					include: [
@@ -21,9 +33,11 @@ export const getAllProducts = async (req, res) => {
 	}
 }
 
-/** Retrieve single product information
- *  Check if user purchased this if logged-in
- *  with corresponding reviews
+/**
+ * [Retrieve single product information]
+ * @param  {[type]}  req [expressjs request]
+ * @param  {[type]}  res [expressjs response]
+ * @return {Promise}     [resolve to sql data]
  */
 export const getSingleProduct = async (req, res) => {
 	try {
