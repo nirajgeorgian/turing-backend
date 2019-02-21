@@ -25,7 +25,14 @@
 		"password": null,
 		"database": "ecomm_test",
 		"host": "127.0.0.1",
-		"dialect": "mysql"
+		"dialect": "mysql",
+		"operatorsAliases": false,
+
+		"define": {
+			"freezeTableName": true,
+			"timestamps": false,
+			"underscored": true
+		}
 	},
 	"production": {
 		"username": "root",

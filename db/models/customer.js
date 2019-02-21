@@ -1,3 +1,5 @@
+import bcrypt from 'bcrypt'
+
 export default (sequelize, DataTypes) => {
 	const customer = sequelize.define(
 		'customer',
@@ -22,13 +24,28 @@ export default (sequelize, DataTypes) => {
 			eve_phone: DataTypes.STRING,
 			mob_phone: DataTypes.STRING,
 		},
-		{}
+		{
+			hooks: {
+				beforeCreate: function(customer) {
+					customer.password = bcrypt.hashSync(
+						customer.password,
+						bcrypt.genSaltSync(10),
+						null
+					)
+				},
+			},
+		}
 	)
+
 	customer.associate = models => {
-		// associations can be defined here
 		customer.belongsTo(models.shipping_region, {
 			foreignKey: 'shipping_region_id',
 		})
 	}
+
+	customer.prototype.validPassword = function(password) {
+		return bcrypt.compareSync(password, this.password)
+	}
+
 	return customer
 }

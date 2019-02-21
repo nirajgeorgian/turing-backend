@@ -1,19 +1,12 @@
 module.exports = {
-	presets: ['@babel/preset-env'],
-	plugins: [
+	presets: [
 		[
-			'module-resolver',
+			'@babel/preset-env',
 			{
-				root: ['./src'],
-				alias: {
-					test: './test',
+				targets: {
+					node: 'current',
 				},
 			},
 		],
-		'@babel/plugin-syntax-dynamic-import',
-		'@babel/plugin-syntax-async-generators',
-		'@babel/plugin-syntax-object-rest-spread',
-		'@babel/plugin-transform-regenerator',
-		'@babel/plugin-transform-runtime',
 	],
 }
