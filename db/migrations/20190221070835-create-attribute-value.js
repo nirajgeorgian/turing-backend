@@ -11,9 +11,16 @@ module.exports = {
 			value: {
 				type: Sequelize.STRING,
 			},
+			attribute_id: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: 'attribute',
+					key: 'attribute_id',
+				},
+			},
 		})
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('attribute_values')
+		return queryInterface.dropTable('attribute_value')
 	},
 }

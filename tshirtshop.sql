@@ -29,17 +29,16 @@ CREATE TABLE `product` (
   `image_2`          VARCHAR(150),
   `thumbnail`        VARCHAR(150),
   `display`          SMALLINT(6)   NOT NULL  DEFAULT '0',
-  `category_id`        INT         NOT NULL,
   PRIMARY KEY  (`product_id`),
   FULLTEXT KEY `idx_ft_product_name_description` (`name`, `description`)
 ) ENGINE=MyISAM;
 
 -- Create product_category table
--- CREATE TABLE `product_category` (
---   `product_id`  INT NOT NULL,
---   `category_id` INT NOT NULL,
---   PRIMARY KEY (`product_id`, `category_id`)
--- ) ENGINE=MyISAM;
+CREATE TABLE `product_category` (
+  `product_id`  INT NOT NULL,
+  `category_id` INT NOT NULL,
+  PRIMARY KEY (`product_id`, `category_id`)
+) ENGINE=MyISAM;
 
 -- Create attribute table (stores attributes such as Size and Color)
 CREATE TABLE `attribute` (

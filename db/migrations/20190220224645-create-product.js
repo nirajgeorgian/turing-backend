@@ -32,13 +32,13 @@ module.exports = {
 			display: {
 				type: Sequelize.SMALLINT,
 			},
-			category_id: {
-				type: Sequelize.INTEGER,
-				references: {
-					model: 'category',
-					key: 'category_id',
-				},
-			},
+			// category_id: {
+			// 	type: Sequelize.INTEGER,
+			// 	references: {
+			// 		model: 'category',
+			// 		key: 'category_id',
+			// 	},
+			// },
 		})
 	},
 	down: (queryInterface, Sequelize) => {
