@@ -1,5 +1,4 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
 	const tax = sequelize.define(
 		'tax',
 		{
@@ -8,8 +7,5 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	)
-	tax.associate = function(models) {
-		// associations can be defined here
-	}
 	return tax
 }

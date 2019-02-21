@@ -1,5 +1,4 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
 	const review = sequelize.define(
 		'review',
 		{
@@ -9,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	)
-	review.associate = function(models) {
+	review.associate = models => {
 		// associations can be defined here
 		review.belongsTo(models.customer)
 	}

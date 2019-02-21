@@ -11,7 +11,7 @@ module.exports = {
 			cart_id: {
 				type: Sequelize.CHAR,
 			},
-			attributes: {
+			attribute: {
 				type: Sequelize.STRING,
 			},
 			quantity: {

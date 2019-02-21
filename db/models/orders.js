@@ -1,5 +1,4 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
 	const orders = sequelize.define(
 		'orders',
 		{
@@ -13,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	)
-	orders.associate = function(models) {
+	orders.associate = models => {
 		// associations can be defined here
 		orders.belongsTo(models.shipping)
 		orders.belongsTo(models.tax)

@@ -1,37 +1,37 @@
 {
-  "development": {
-    "username": "root",
-    "password": "dodo",
-    "database": "ecomm_dev",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false,
+	"development": {
+		"username": "root",
+		"password": "dodo",
+		"database": "ecomm_dev",
+		"host": "127.0.0.1",
+		"dialect": "mysql",
+		"operatorsAliases": false,
 
-    "pool": {
-  		"max": 5,
-  		"min": 0,
-  		"acquire": 30000,
-  		"idle": 10000
-  	},
+		"pool": {
+			"max": 5,
+			"min": 0,
+			"acquire": 30000,
+			"idle": 10000
+		},
 
-    "define": {
-  		"freezeTableName": true,
-  		"timestamps": true,
-  		"underscored": true
-  	}
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "ecomm_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "ecomm",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
+		"define": {
+			"freezeTableName": true,
+			"timestamps": false,
+			"underscored": true
+		}
+	},
+	"test": {
+		"username": "root",
+		"password": null,
+		"database": "ecomm_test",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	},
+	"production": {
+		"username": "root",
+		"password": null,
+		"database": "ecomm",
+		"host": "127.0.0.1",
+		"dialect": "mysql"
+	}
 }

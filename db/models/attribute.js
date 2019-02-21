@@ -1,5 +1,4 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
 	const attribute = sequelize.define(
 		'attribute',
 		{
@@ -7,8 +6,5 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	)
-	attribute.associate = function(models) {
-		// associations can be defined here
-	}
 	return attribute
 }

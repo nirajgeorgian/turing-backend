@@ -1,5 +1,4 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
 	const product = sequelize.define(
 		'product',
 		{
@@ -21,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 			],
 		}
 	)
-	product.associate = function(models) {
+	product.associate = models => {
 		// associations can be defined here
 		product.belongsToMany(models.category, {
 			through: 'product_category',

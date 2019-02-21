@@ -1,5 +1,4 @@
-'use strict'
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
 	const customer = sequelize.define(
 		'customer',
 		{
@@ -19,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	)
-	customer.associate = function(models) {
+	customer.associate = models => {
 		// associations can be defined here
 		customer.belongsTo(models.shipping_region)
 	}
