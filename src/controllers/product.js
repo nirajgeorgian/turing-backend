@@ -1,4 +1,4 @@
-import { category, product } from '../../db/models'
+import { category, product, department } from '../../db/models'
 import { errorMessage, successMessage } from '../utils/response'
 
 export const getAllProducts = async (req, res) => {
@@ -7,6 +7,11 @@ export const getAllProducts = async (req, res) => {
 			include: [
 				{
 					model: category,
+					include: [
+						{
+							model: department,
+						},
+					],
 				},
 			],
 		})
@@ -26,6 +31,11 @@ export const getSingleProduct = async (req, res) => {
 			include: [
 				{
 					model: category,
+					include: [
+						{
+							model: department,
+						},
+					],
 				},
 			],
 		})

@@ -19,6 +19,7 @@ export default (sequelize, DataTypes) => {
 			through: 'product_category',
 			foreignKey: 'category_id',
 		})
+		category.belongsTo(models.department, { foreignKey: 'department_id' })
 	}
 	return category
 }
