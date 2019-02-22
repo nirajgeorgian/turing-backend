@@ -1,20 +1,26 @@
 import './src/config/env'
 import http from 'http'
 import app from './src/app'
+import models from './db/models'
 import { development } from './src/config/console'
 
 const server = http.createServer(app)
-let currentApp = app
 
 const PORT = process.env.PORT || 8080
-server.listen(PORT, () => {
-	development(`running app http://localhost:${PORT}`)
+models.sequelize.sync().then(() => {
+	server.listen(PORT, err => {
+		if (err) {
+			development(err.message)
+		}
+		development(`running app http://localhost:${PORT}`)
+	})
 })
 
 /**
  * [if Hot Module for webpack]
  * @param  {[type]} module [global module node object]
  */
+let currentApp = app
 if (module.hot) {
 	module.hot.accept('./src/app', () => {
 		server.removeListener('request', currentApp)
