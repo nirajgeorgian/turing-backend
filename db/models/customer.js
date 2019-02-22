@@ -41,6 +41,7 @@ export default (sequelize, DataTypes) => {
 		customer.belongsTo(models.shipping_region, {
 			foreignKey: 'shipping_region_id',
 		})
+		customer.hasMany(models.shopping_cart, { foreignKey: 'customer_id' })
 	}
 
 	customer.prototype.validPassword = function(password) {

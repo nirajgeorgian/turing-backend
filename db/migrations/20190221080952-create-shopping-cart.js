@@ -2,14 +2,11 @@
 module.exports = {
 	up: (queryInterface, Sequelize) => {
 		return queryInterface.createTable('shopping_cart', {
-			item_id: {
+			cart_id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
-			},
-			cart_id: {
-				type: Sequelize.CHAR(32),
 			},
 			attribute: {
 				type: Sequelize.STRING(1000),
@@ -28,6 +25,13 @@ module.exports = {
 				references: {
 					model: 'product',
 					key: 'product_id',
+				},
+			},
+			customer_id: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: 'customer',
+					key: 'customer_id',
 				},
 			},
 		})

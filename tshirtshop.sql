@@ -180,10 +180,8 @@ CREATE TABLE `review` (
   KEY `idx_review_customer_id` (`customer_id`),
   KEY `idx_review_product_id` (`product_id`)
 ) ENGINE=MyISAM;
-
--- Populate department table
 INSERT INTO `department` (`department_id`, `name`, `description`) VALUES
-       (1, 'Regional', 'Proud of your country? Wear a T-shirt with a national symbol stamp!'),
+    (1, 'Regional', 'Proud of your country? Wear a T-shirt with a national symbol stamp!'),
        (2, 'Nature', 'Find beautiful T-shirts with animals and flowers in our Nature department!'),
        (3, 'Seasonal', 'Each time of the year has a special flavor. Our seasonal T-shirts express traditional symbols using unique postal stamp pictures.');
 
@@ -216,7 +214,7 @@ INSERT INTO `product` (`product_id`, `name`, `description`, `price`, `discounted
        (15, 'Notre Dame', 'Commemorating the 800th anniversary of the famed cathedral.', 18.50, 16.99, 'notre-dame.gif', 'notre-dame-2.gif', 'notre-dame-thumbnail.gif', 2),
        (16, 'Paris Peace Conference', 'The resulting treaties allowed Italy, Romania, Hungary, Bulgaria, and Finland to reassume their responsibilities as sovereign states in international affairs and thus qualify for membership in the UN.', 16.95, 15.99, 'paris-peace-conference.gif', 'paris-peace-conference-2.gif', 'paris-peace-conference-thumbnail.gif', 2),
        (17, 'Sarah Bernhardt', 'The "Divine Sarah" said this about Americans: "You are younger than we as a race, you are perhaps barbaric, but what of it? You are still in the molding. Your spirit is superb. It is what helped us win the war." Perhaps we''re still barbaric but we''re still winning wars for them too!', 14.99, 0.00, 'sarah-bernhardt.gif', 'sarah-bernhardt-2.gif', 'sarah-bernhardt-thumbnail.gif', 0),
-       (18, 'Hunt', 'A scene from "Les Tres Riches Heures," a medieval "book of hours" containing the text for each liturgical hour of the day. This scene is from a 14th century painting.', 16.99, 15.95, 'hunt.gif', 'hunt-2.gif', 'hunt-thumbnail.gif', 2), 
+       (18, 'Hunt', 'A scene from "Les Tres Riches Heures," a medieval "book of hours" containing the text for each liturgical hour of the day. This scene is from a 14th century painting.', 16.99, 15.95, 'hunt.gif', 'hunt-2.gif', 'hunt-thumbnail.gif', 2),
        (19, 'Italia', 'The War had just ended when this stamp was designed, and even so, there was enough optimism to show the destroyed oak tree sprouting again from its stump! What a beautiful T-shirt!', 22.00, 18.99, 'italia.gif', 'italia-2.gif', 'italia-thumbnail.gif', 2),
        (20, 'Torch', 'The light goes on! Carry the torch with this T-shirt and be a beacon of hope for the world!', 19.99, 17.95, 'torch.gif', 'torch-2.gif', 'torch-thumbnail.gif', 2),
        (21, 'Espresso', 'The winged foot of Mercury speeds the Special Delivery mail to its destination. In a hurry? This T-shirt is for you!', 16.95, 0.00, 'espresso.gif', 'espresso-2.gif', 'espresso-thumbnail.gif', 0),
@@ -284,7 +282,7 @@ INSERT INTO `product` (`product_id`, `name`, `description`, `price`, `discounted
        (83, 'Weather Vane', 'This weather vane dates from the 1830''s and is still showing which way the wind blows! Trumpet your arrival with this unique Christmas T-shirt.', 15.95, 14.99, 'weather-vane.gif', 'weather-vane-2.gif', 'weather-vane-thumbnail.gif', 2),
        (84, 'Mistletoe', 'This well-known parasite and killer of trees was revered by the Druids, who would go out and gather it with great ceremony. Youths would go about with it to announce the new year. Eventually more engaging customs were attached to the strange plant, and we''re here to see that they continue with these cool Christmas T-shirts.', 19.00, 17.99, 'mistletoe.gif', 'mistletoe-2.gif', 'mistletoe-thumbnail.gif', 3),
        (85, 'Altar Piece', 'This beautiful angel Christmas T-shirt is awaiting the opportunity to adorn your chest!', 20.50, 18.50, 'altar-piece.gif', 'altar-piece-2.gif', 'altar-piece-thumbnail.gif', 2),
-       (86, 'The Three Wise Men', 'This is a classic rendition of one of the season�s most beloved stories, and now showing on a Christmas T-shirt for you!', 12.99, 0.00, 'the-three-wise-men.gif', 'the-three-wise-men-2.gif', 'the-three-wise-men-thumbnail.gif', 0),
+       (86, 'The Three Wise Men', 'This is a classic rendition of one of the seasons most beloved stories, and now showing on a Christmas T-shirt for you!', 12.99, 0.00, 'the-three-wise-men.gif', 'the-three-wise-men-2.gif', 'the-three-wise-men-thumbnail.gif', 0),
        (87, 'Christmas Tree', 'Can you get more warm and folksy than this classic Christmas T-shirt?', 20.00, 17.95, 'christmas-tree.gif', 'christmas-tree-2.gif', 'christmas-tree-thumbnail.gif', 2),
        (88, 'Madonna & Child', 'This exquisite image was painted by Filipino Lippi, a 15th century Italian artist. I think he would approve of it on a Going Postal Christmas T-shirt!', 21.95, 18.50, 'madonna-child.gif', 'madonna-child-2.gif', 'madonna-child-thumbnail.gif', 0),
        (89, 'The Virgin Mary', 'This stained glass window is found in Glasgow Cathedral, Scotland, and was created by Gabriel Loire of France, one of the most prolific of artists in this medium--and now you can have it on this wonderful Christmas T-shirt.', 16.95, 15.95, 'the-virgin-mary.gif', 'the-virgin-mary-2.gif', 'the-virgin-mary-thumbnail.gif', 2),
@@ -348,18 +346,20 @@ INSERT INTO `shipping` (`shipping_id`,   `shipping_type`,
        (5, 'By sea (28 days, $10)',   10.00, 3),
        (6, 'By air (10 days, $35)',   35.00, 4),
        (7, 'By sea (28 days, $30)',   30.00, 4);
+       
+  
+  -- Populate tax table
+  INSERT INTO `tax` (`tax_id`, `tax_type`, `tax_percentage`) VALUES
+  (1, 'Sales Tax at 8.5%', 8.50),
+  (2, 'No Tax',            0.00);
+  
+  -- Change DELIMITER to $$
+  DELIMITER $$
+  
+  -- Create catalog_get_departments_list stored procedure
+  CREATE PROCEDURE catalog_get_departments_list()
+  BEGIN
 
--- Populate tax table
-INSERT INTO `tax` (`tax_id`, `tax_type`, `tax_percentage`) VALUES
-       (1, 'Sales Tax at 8.5%', 8.50),
-       (2, 'No Tax',            0.00);
-
--- Change DELIMITER to $$
-DELIMITER $$
-
--- Create catalog_get_departments_list stored procedure
-CREATE PROCEDURE catalog_get_departments_list()
-BEGIN
   SELECT department_id, name FROM department ORDER BY department_id;
 END$$
 
