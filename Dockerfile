@@ -1,21 +1,20 @@
 FROM node:10
-
 LABEL nirajgeorgian <nirajgeorgian@gmail.com>
 
 # Set the Working directory for API
 WORKDIR /www/api
 
 # Dependencies for running the backend API
-RUN npm install pm2 -g
+RUN npm install pm2 -g --no-optional
+RUN npm install babel-cli -g --no-optional
 RUN apt-get update
 
 # Adding pependencies package
-COPY package.json /www/api
-COPY package-lock.json /www/api
+COPY package*.json ./
 RUN npm install --production --silent --no-optional
 
 # Add current folder to WORKDIR
-ADD . /www/api
+COPY . .
 
 # Entrypoint script
 RUN cp app.sh /usr/local/bin && chmod +x /usr/local/bin/app.sh
