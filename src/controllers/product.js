@@ -58,7 +58,7 @@ export const getAllProducts = async (req, res) => {
  */
 export const getSingleProduct = async (req, res) => {
 	try {
-		const singleProduct = await product.findById(req.params.id, {
+		const singleProduct = await product.findByPk(req.params.id, {
 			include: [
 				{
 					model: category,

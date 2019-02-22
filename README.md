@@ -39,3 +39,6 @@ In production it will use `redis`[redis](https://redis.io/)
 
 And finally you have to adjust the `db/config/config.js` to fit your environment.
 Once thats done, your database configuration is ready!
+
+## Test the api in postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6784bd449979bbace05c)
