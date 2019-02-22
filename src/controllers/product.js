@@ -1,9 +1,4 @@
-import {
-	category,
-	product_category,
-	product,
-	department,
-} from '../../db/models'
+import { category, product_category, product, department } from '../db/models'
 import { errorMessage, successMessage } from '../utils/response'
 
 /**

@@ -1,4 +1,4 @@
-import { customer } from '../../db/models'
+import { customer } from '../db/models'
 import { generateJwtToken } from '../utils/auth/auth.util'
 import { errorMessage, successMessage } from '../utils/response'
 import { validateEmail, validatePassword } from '../utils/helpers'

@@ -1,4 +1,4 @@
-import { shopping_cart, sequelize } from '../../db/models'
+import { shopping_cart, sequelize } from '../db/models'
 import { errorMessage, successMessage } from '../utils/response'
 
 export const getCart = async (req, res) => {

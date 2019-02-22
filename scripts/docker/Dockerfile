@@ -1,0 +1,26 @@
+FROM node:10
+
+LABEL nirajgeorgian <nirajgeorgian@gmail.com>
+
+# Set the Working directory for API
+WORKDIR /www/api
+
+# Dependencies for running the backend API
+RUN npm install pm2 -g
+RUN apt-get update
+
+# Adding pependencies package
+COPY package.json /www/api
+COPY package-lock.json /www/api
+RUN npm install --production --silent --no-optional
+
+# Add current folder to WORKDIR
+ADD . /www/api
+
+# Entrypoint script
+RUN cp app.sh /usr/local/bin && chmod +x /usr/local/bin/app.sh
+
+# Expose the port
+EXPOSE 8080
+
+CMD ["/usr/local/bin/app.sh"]

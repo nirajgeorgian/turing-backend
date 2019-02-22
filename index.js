@@ -1,7 +1,7 @@
 import './src/config/env'
 import http from 'http'
 import app from './src/app'
-import models from './db/models'
+import models from './src/db/models'
 import { development } from './src/config/console'
 
 const server = http.createServer(app)

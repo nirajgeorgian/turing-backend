@@ -1,4 +1,4 @@
-import { customer } from '../../db/models'
+import { customer } from '../db/models'
 import { errorMessage, successMessage } from '../utils/response'
 
 export const getProfile = async (req, res) => {
