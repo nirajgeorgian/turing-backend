@@ -6,7 +6,7 @@ WORKDIR /www/api
 
 # Dependencies for running the backend API
 RUN npm install pm2 -g --no-optional
-RUN npm install babel-cli -g --no-optional
+# RUN npm install @babel/cli -g --no-optional
 RUN apt-get update
 
 # Adding pependencies package

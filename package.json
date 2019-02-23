@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "db:create": "./node_modules/.bin/sequelize  db:create",
-    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:create": "sequelize  db:create",
+    "db:migrate": "sequelize db:migrate",
     "db:test": "NODE_ENV=test sequelize  db:create && NODE_ENV=test sequelize db:migrate",
     "db:migrate:undo": "sequalize db:migrate:undo",
     "build": "babel index.js --out-dir dist",
     "start": "NODE_ENV=development DEBUG=development nodemon --exec babel-node index.js",
-    "docker-start": "pm2-runtime start scripts/pm2/ecosystem.config.js --web"
+    "docker-start": "NODE_ENV=production pm2-runtime start scripts/pm2/ecosystem.config.js"
   },
   "husky": {
     "hooks": {
@@ -28,6 +28,10 @@
   "author": "niraj georgian",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "bcrypt": "^3.0.4",
     "compression": "^1.7.3",
     "cors": "^2.8.5",
@@ -45,10 +49,6 @@
     "toobusy-js": "^0.5.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.3.3",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
     "eslint": "^5.12.1",
     "eslint-config-prettier": "^3.6.0",
     "eslint-plugin-jest": "^22.3.0",

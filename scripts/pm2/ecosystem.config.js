@@ -4,7 +4,7 @@ module.exports = {
 			name: 'backend-api',
 			script: './index.js',
 			exec_mode: 'fork',
-			exec_interpreter: 'babel-node',
+			exec_interpreter: './node_modules/.bin/babel-node',
 			instances: 1,
 			merge_logs: true,
 			env: {

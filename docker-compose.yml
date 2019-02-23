@@ -1,0 +1,24 @@
+version: "3"
+
+volumes:
+  db_data: {}
+
+services:
+  mysql:
+    build: ./scripts/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: dodo
+      MYSQL_DATABASE: ecomm
+      MYSQL_USER: ecomm
+      MYSQL_PASSWORD: dodo
+    volumes:
+      - db_data:/var/lib/mysql/data
+  
+  ecommerce-api:
+    build: .
+    depends_on:
+      - mysql
+    entrypoint:
+      - /usr/local/bin/app.sh
+    ports:
+      - "8080:8080"
