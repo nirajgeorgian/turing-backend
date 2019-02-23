@@ -22,7 +22,7 @@ export const getAllProducts = async (req, res) => {
 		? { name: req.query.department_name }
 		: null
 	try {
-		const products = await product_category.findAll({
+		const products = await product_category.findAndCountAll({
 			limit,
 			offset,
 			include: [
@@ -39,7 +39,17 @@ export const getAllProducts = async (req, res) => {
 				},
 			],
 		})
-		return res.send(successMessage('products', products))
+		const { count } = products
+		const pageLimit = req.query.limit ? Number(req.query.limit) : 12
+		const pageOffset = req.query.offset ? Number(req.query.offset) : 0
+		const totalCurrent = page * pageSize - pageSize + pageOffset + pageLimit
+		const hasNext = totalCurrent < count ? true : false
+		return res.send(
+			successMessage('data', {
+				products: products,
+				hasNext,
+			})
+		)
 	} catch (err) {
 		return res.status(400).send(errorMessage(err.message))
 	}
