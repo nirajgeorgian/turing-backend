@@ -11,7 +11,7 @@
     "db:migrate:undo": "sequalize db:migrate:undo",
     "build": "babel index.js --out-dir dist",
     "start": "NODE_ENV=development DEBUG=development nodemon --exec babel-node index.js",
-    "docker-start": "NODE_ENV=production pm2-runtime start scripts/pm2/ecosystem.config.js"
+    "docker-start": "pm2-runtime start scripts/pm2/ecosystem.config.js --env production"
   },
   "husky": {
     "hooks": {
