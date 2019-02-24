@@ -42,6 +42,7 @@ export const addToCart = async (req, res) => {
 				})
 				const carts = await shopping_cart.findAll({
 					where: { customer_id },
+					include: [{ model: product, as: 'product' }],
 				})
 				return res.send(successMessage('cart', carts))
 			} catch (err) {
@@ -71,6 +72,7 @@ export const updateCart = async (req, res) => {
 			if (updated_cart) {
 				const carts = await shopping_cart.findAll({
 					where: { customer_id },
+					include: [{ model: product, as: 'product' }],
 				})
 				return res.send(successMessage('cart', carts))
 			} else {
@@ -105,6 +107,7 @@ export const removeCart = async (req, res) => {
 			})
 			const carts = await shopping_cart.findAll({
 				where: { customer_id },
+				include: [{ model: product, as: 'product' }],
 			})
 			return res.send(successMessage('cart', carts))
 		} else {
