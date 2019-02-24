@@ -6,6 +6,7 @@ export const getCart = async (req, res) => {
 	try {
 		const carts = await shopping_cart.findAll({
 			where: { customer_id },
+			include: [{ model: product, as: 'product' }],
 		})
 		return res.send(successMessage('cart', carts))
 	} catch (err) {
