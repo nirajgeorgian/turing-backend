@@ -2,6 +2,15 @@ import httpMocks from 'node-mocks-http'
 import { sequelize } from '../db/models'
 import { signup, login } from './customer'
 
+const user = {
+	email: 'dododuck@example.com',
+	password: 'dodo@N9'
+}
+const newUser = {
+	name: 'dodo duck',
+	...user
+}
+
 beforeAll(async () => {
 	await sequelize.drop()
 	await sequelize.sync({ force: true })
@@ -11,15 +20,7 @@ afterAll(() => {
 	sequelize.close()
 })
 
-describe('Test the customer Model', () => {
-	const user = {
-		email: 'dododuck@example.com',
-		password: 'dodo@N9'
-	}
-	const newUser = {
-		name: 'dodo duck',
-		...user
-	}
+describe('Test the customer Controller', () => {
 
 	test('signup: Controller', async () => {
 		const req = httpMocks.createRequest({

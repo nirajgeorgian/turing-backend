@@ -49,3 +49,16 @@ export const validateStringLength = (text, limit) => {
 	}
 	return errorMessage
 }
+
+export const removeKeys = (obj, fields) => {
+	const newObj = obj
+	const keys = Object.keys(newObj.dataValues)
+	keys.forEach(key => {
+		fields.forEach(field => {
+			if (key === field) {
+				delete newObj.dataValues[key]
+			}
+		})
+	})
+	return newObj
+}
