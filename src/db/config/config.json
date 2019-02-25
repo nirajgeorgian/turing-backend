@@ -37,14 +37,14 @@
 		}
 	},
 	"production": {
-		"username": "ecomm",
-		"password": "dodo",
-		"database": "ecomm",
-		"host": "mysql",
+		"username": "b5bf694feca50f",
+		"password": "71e69ab5",
+		"database": "heroku_feda68d9b69abc8",
+		"host": "us-cdbr-iron-east-03.cleardb.net",
 		"dialect": "mysql",
 		"operatorsAliases": false,
 		"logging": false,
-		
+
 		"pool": {
 			"max": 5,
 			"min": 0,
