@@ -1,21 +1,24 @@
 import httpMocks from 'node-mocks-http'
 import { sequelize } from '../db/models'
-import { signup } from './customer'
+import { signup, login } from './customer'
 
 beforeAll(async () => {
 	await sequelize.drop()
 	await sequelize.sync({ force: true })
-}, 10000)
+}, 30000)
 
 afterAll(() => {
 	sequelize.close()
 })
 
 describe('Test the customer Model', () => {
+	const user = {
+		email: 'dododuck@example.com',
+		password: 'dodo@N9'
+	}
 	const newUser = {
 		name: 'dodo duck',
-		email: 'dododuck@example.com',
-		password: 'dodo@N9',
+		...user
 	}
 
 	test('signup: Controller', async () => {
@@ -28,5 +31,21 @@ describe('Test the customer Model', () => {
 		await signup(req, res)
 		const data = await res._getData()
 		expect(data.status).toBeTruthy()
+		expect(data.customer).toHaveProperty('name', newUser.name)
+		expect(data.customer).toHaveProperty('email', newUser.email)
+	})
+	
+	test('login: Controller', async () => {
+		const req = httpMocks.createRequest({
+			method: 'POST',
+			url: '/api/v1/auth/login',
+			body: newUser,
+		})
+		const res = httpMocks.createResponse()
+		await login(req, res)
+		const data = await res._getData()
+		expect(data.status).toBeTruthy()
+		expect(data.customer).toHaveProperty('token')
+		expect(data.customer.token).toContain('Bearer')
 	})
 })
