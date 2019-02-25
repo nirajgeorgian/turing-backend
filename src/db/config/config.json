@@ -40,7 +40,7 @@
 		"username": "ip7szb8svvk753id",
 		"password": "jfpupl4nbqhh1dod",
 		"database": "i9pt4iv0t51m9l7u",
-		"host": "otmaa16c1i9nwrek.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306",
+		"host": "otmaa16c1i9nwrek.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
 		"dialect": "mysql",
 		"operatorsAliases": false,
 		"logging": false,
