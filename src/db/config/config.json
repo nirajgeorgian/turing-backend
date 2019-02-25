@@ -37,11 +37,11 @@
 		}
 	},
 	"production": {
-		"username": "ucrgtuczzvbelv",
-		"password": "79252cbd2709d30458d8ea00df26d67a411d6f0667b164f2548c8e11f9ef4cce",
-		"database": "d5k3u6mnco2ir0",
-		"host": "ec2-54-235-134-25.compute-1.amazonaws.com",
-		"dialect": "postgres",
+		"username": "b89e9a57c5f04a",
+		"password": "3d290a2c",
+		"database": "heroku_f49b972553412a6",
+		"host": "us-cdbr-iron-east-03.cleardb.net",
+		"dialect": "mysql",
 		"operatorsAliases": false,
 		"logging": false,
 
