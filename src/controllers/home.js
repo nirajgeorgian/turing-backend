@@ -1,6 +1,11 @@
+import { successMessage } from '../utils/response'
+
 export const home = async (req, res) => {
-	await res.send({
-		host: req.headers.host,
-		message: 'API up and running.',
-	})
+	return await res.send(
+		successMessage('server', {
+			host: req.headers.host,
+			message: 'API up and running.',
+			timestamp: new Date().toISOString(),
+		})
+	)
 }
