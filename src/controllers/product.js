@@ -22,10 +22,10 @@ export const getAllProducts = async (req, res) => {
 		: (page - 1) * pageSize
 	const limit = Number(req.query.limit) || pageSize
 	const category_name = req.query.category_name
-		? { name: req.query.category_name }
+		? { name: decodeURI(req.query.category_name) }
 		: null
 	const department_name = req.query.department_name
-		? { name: req.query.department_name }
+		? { name: decodeURI(req.query.department_name) }
 		: null
 	try {
 		const products = await product_category.findAndCountAll({
@@ -69,7 +69,7 @@ export const getAllProducts = async (req, res) => {
  */
 export const getSingleProduct = async (req, res) => {
 	try {
-		const singleProduct = await product.findByPk(req.params.id, {
+		const singleProduct = await product.findByPk(decodeURI(req.params.id), {
 			include: [
 				{
 					model: category,
@@ -89,14 +89,17 @@ export const getSingleProduct = async (req, res) => {
 
 export const searchProduct = async (req, res) => {
 	try {
-		const result = await product.find({
-			where: Sequelize.literal(
-				`MATCH (name, description) AGAINST('${
-					req.query.term
-				}' IN NATURAL LANGUAGE MODE)`
-			),
-		})
-		return res.send(successMessage('products', result))
+		const result = await product.find(
+			{
+				where: Sequelize.literal(
+					`MATCH (name, description) AGAINST('${decodeURI(
+						req.query.term
+					)}' IN NATURAL LANGUAGE MODE)`
+				),
+			},
+			{ include: [{ model: category }] }
+		)
+		return res.send(successMessage('product', result))
 	} catch (err) {
 		return res.status(400).send(errorMessage('no product found'))
 	}
