@@ -137,6 +137,34 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "http://localhost:8080/api/v1/search?term=Arc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/search?term=Arc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"search"
+							],
+							"query": [
+								{
+									"key": "term",
+									"value": "Arc"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -206,6 +234,59 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "profile",
+			"item": [
+				{
+					"name": "http://localhost:8080/api/v1/profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJkb2RvZHVja0BleGFtcGxlLmNvbSIsImlhdCI6MTU1MDg1MTM1MSwiZXhwIjoxNTUzNDQzMzUxfQ.XyR6YGYd36Ngbtjpe9lG4UwysqBTfiTR2Ta_Z1MjtXQj6sGLCmDsknOHav-1KRTara_OmG1BjC5bQzqQz87oUA"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8080/api/v1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
