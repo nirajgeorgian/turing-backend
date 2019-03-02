@@ -1,4 +1,10 @@
-import { category, product_category, product, department } from '../db/models'
+import {
+	category,
+	product_category,
+	product,
+	department,
+	Sequelize,
+} from '../db/models'
 import { errorMessage, successMessage } from '../utils/response'
 
 /**
@@ -78,5 +84,20 @@ export const getSingleProduct = async (req, res) => {
 		return res.send(successMessage('product', singleProduct))
 	} catch (err) {
 		return res.status(400).send(errorMessage(err.message))
+	}
+}
+
+export const searchProduct = async (req, res) => {
+	try {
+		const result = await product.find({
+			where: Sequelize.literal(
+				`MATCH (name, description) AGAINST('${
+					req.query.term
+				}' IN NATURAL LANGUAGE MODE)`
+			),
+		})
+		return res.send(successMessage('products', result))
+	} catch (err) {
+		return res.status(400).send(errorMessage('no product found'))
 	}
 }

@@ -23,6 +23,11 @@ export default (sequelize, DataTypes) => {
 					name: 'idx_ft_product_name_description',
 					fields: ['name', 'description'],
 				},
+				{
+					type: 'FULLTEXT',
+					name: 'product_idx',
+					fields: ['name', 'description'],
+				},
 			],
 		}
 	)
