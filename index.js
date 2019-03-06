@@ -7,7 +7,7 @@ import { development } from './src/config/console'
 const server = http.createServer(app)
 
 const PORT = process.env.PORT || 8080
-models.sequelize.sync().then(() => {
+models.sequelize.sync({ force: true }).then(() => {
 	server.listen(PORT, err => {
 		if (err) {
 			development(err.message)
