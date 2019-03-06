@@ -8,27 +8,27 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			name: DataTypes.STRING(100),
+			name: DataTypes.STRING,
 			description: DataTypes.STRING(1000),
 			price: DataTypes.DECIMAL(10, 2),
 			discounted_price: DataTypes.DECIMAL(10, 2),
-			image: DataTypes.STRING(150),
-			image_2: DataTypes.STRING(150),
-			thumbnail: DataTypes.STRING(150),
-			display: DataTypes.SMALLINT(6),
+			image: DataTypes.STRING,
+			image_2: DataTypes.STRING,
+			thumbnail: DataTypes.STRING,
+			display: DataTypes.INTEGER,
 		},
 		{
-			indexes: [
-				{
-					name: 'idx_ft_product_name_description',
-					fields: ['name', 'description'],
-				},
-				{
-					type: 'FULLTEXT',
-					name: 'product_idx',
-					fields: ['name', 'description'],
-				},
-			],
+			// indexes: [
+			// 	{
+			// 		name: 'idx_ft_product_name_description',
+			// 		fields: ['name', 'description'],
+			// 	},
+			// 	{
+			// 		type: 'FULLTEXT',
+			// 		name: 'product_idx',
+			// 		fields: ['name', 'description'],
+			// 	},
+			// ],
 		}
 	)
 	product.associate = models => {

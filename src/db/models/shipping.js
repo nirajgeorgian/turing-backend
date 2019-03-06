@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			shipping_type: DataTypes.STRING(100),
+			shipping_type: DataTypes.STRING,
 			shipping_cost: DataTypes.FLOAT(10, 2),
 		},
 		{}

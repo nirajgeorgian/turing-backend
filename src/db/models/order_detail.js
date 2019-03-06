@@ -9,7 +9,7 @@ export default (sequelize, DataTypes) => {
 				type: DataTypes.INTEGER,
 			},
 			attribute: DataTypes.STRING(1000),
-			product_name: DataTypes.STRING(100),
+			product_name: DataTypes.STRING,
 			quantity: DataTypes.INTEGER,
 			unit_cost: DataTypes.DECIMAL(10, 2),
 		},

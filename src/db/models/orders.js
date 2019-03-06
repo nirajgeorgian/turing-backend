@@ -13,8 +13,8 @@ export default (sequelize, DataTypes) => {
 			shipped_on: DataTypes.DATE,
 			status: DataTypes.INTEGER,
 			comments: DataTypes.STRING,
-			auth_code: DataTypes.STRING(50),
-			reference: DataTypes.STRING(50),
+			auth_code: DataTypes.STRING,
+			reference: DataTypes.STRING,
 		},
 		{}
 	)

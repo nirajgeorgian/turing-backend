@@ -30,7 +30,7 @@ module.exports = {
 				type: Sequelize.STRING(150),
 			},
 			display: {
-				type: Sequelize.SMALLINT(6),
+				type: Sequelize.INTEGER,
 			},
 			// category_id: {
 			// 	type: Sequelize.INTEGER,
