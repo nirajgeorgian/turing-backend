@@ -37,10 +37,10 @@
 		}
 	},
 	"production": {
-		"username": "b89e9a57c5f04a",
-		"password": "3d290a2c",
-		"database": "heroku_f49b972553412a6",
-		"host": "us-cdbr-iron-east-03.cleardb.net",
+		"username": "lcpdCmi3S6",
+		"password": "2eIvJppIDN",
+		"database": "lcpdCmi3S6",
+		"host": "remotemysql.com",
 		"dialect": "mysql",
 		"operatorsAliases": false,
 		"logging": false,
