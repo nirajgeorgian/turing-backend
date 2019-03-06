@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			attribute: DataTypes.STRING,
+			attribute: DataTypes.STRING(1000),
 			quantity: DataTypes.INTEGER,
 			buy_now: DataTypes.BOOLEAN,
 			added_on: DataTypes.DATE,

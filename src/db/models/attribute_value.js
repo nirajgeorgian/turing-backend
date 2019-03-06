@@ -8,7 +8,7 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			value: DataTypes.STRING,
+			value: DataTypes.STRING(100),
 		},
 		{}
 	)

@@ -8,13 +8,13 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			total_amount: DataTypes.DECIMAL,
+			total_amount: DataTypes.DECIMAL(10, 2),
 			created_on: DataTypes.DATE,
 			shipped_on: DataTypes.DATE,
 			status: DataTypes.INTEGER,
 			comments: DataTypes.STRING,
-			auth_code: DataTypes.STRING,
-			reference: DataTypes.STRING,
+			auth_code: DataTypes.STRING(50),
+			reference: DataTypes.STRING(50),
 		},
 		{}
 	)

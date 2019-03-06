@@ -8,8 +8,8 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			tax_type: DataTypes.STRING,
-			tax_percentage: DataTypes.FLOAT,
+			tax_type: DataTypes.STRING(100),
+			tax_percentage: DataTypes.FLOAT(10, 2),
 		},
 		{}
 	)

@@ -8,10 +8,10 @@ export default (sequelize, DataTypes) => {
 				primaryKey: true,
 				type: DataTypes.INTEGER,
 			},
-			attribute: DataTypes.STRING,
-			product_name: DataTypes.STRING,
+			attribute: DataTypes.STRING(1000),
+			product_name: DataTypes.STRING(100),
 			quantity: DataTypes.INTEGER,
-			unit_cost: DataTypes.DECIMAL,
+			unit_cost: DataTypes.DECIMAL(10, 2),
 		},
 		{}
 	)
